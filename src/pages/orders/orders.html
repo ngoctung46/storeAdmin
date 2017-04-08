@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ModifierPage page.
+  Generated template for the Orders page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -10,22 +10,21 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>ModifierPage</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addModifier()">
+     <ion-buttons end>
+      <button ion-button icon-only (click)="addOrder()">
       <ion-icon name="add"></ion-icon>
     </button>
-    </ion-buttons>
+     </ion-buttons>
+    <ion-title>orders</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content
->
+<ion-content padding>
   <ion-list inset>
-      <button ion-item *ngFor="let modifier of modifiers|async" (click)="showOptions(modifier)">
-        <h2>{{ modifier.name }}</h2>
+      <button ion-item *ngFor="let order of orders|async">
+        <h2>{{ order.name }}</h2>
       </button>  
   </ion-list>
 </ion-content>
