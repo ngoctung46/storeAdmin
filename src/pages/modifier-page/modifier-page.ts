@@ -28,6 +28,7 @@ export class ModifierPage {
     public alertCtrl: AlertController,
     public actionSheetCtrl: ActionSheetController) {
     this.modifiers = af.database.list('/modifiers');
+    this.modifiers.subscribe(x => console.log(x));
   }
 
   ionViewDidLoad() {
