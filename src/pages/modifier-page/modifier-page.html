@@ -20,20 +20,9 @@
 
 <ion-content
 >
-  <ion-list>
-    <ion-item-sliding>
-      <button ion-item *ngFor="let modifier of modifiers|async" (click)="showOptions(modifier.$key, modifier.name)">
+  <ion-list inset>
+      <button ion-item *ngFor="let modifier of modifiers|async" (click)="showOptions(modifier)">
         <h2>{{ modifier.name }}</h2>
-      </button>
-      <ion-item-options side="right">
-        <button ion-button color="primary">        
-        Edit
-      </button>
-        <button ion-button color="secondary">        
-        Delete
-      </button>
-      </ion-item-options>
-    </ion-item-sliding>
+      </button>  
   </ion-list>
-
 </ion-content>
