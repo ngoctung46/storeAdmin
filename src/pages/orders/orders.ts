@@ -21,7 +21,7 @@ export class OrdersPage {
     public af: AngularFire,
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController) {
-      this.orders = af.database.list('/orders');
+    this.orders = af.database.list('/orders');
   }
 
   ionViewDidLoad() {

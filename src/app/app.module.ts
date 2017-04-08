@@ -12,6 +12,7 @@ import { AngularFireModule } from 'angularfire2';
 import { ModifierPageModule } from '../pages/modifier-page/modifier-page.module';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { OrdersModule } from '../pages/orders/orders.module';
+import { ProductPageModule } from '../pages/product-page/product-page.module';
 export const config = {
   apiKey: "AIzaSyBhyx9qtOO7VYKaUbGUW32L9pwamQqL6Aw",
   authDomain: "fire-base-demo-13f1d.firebaseapp.com",
@@ -31,6 +32,7 @@ export const config = {
     IonicModule.forRoot(MyApp),
     ModifierPageModule,
     OrdersModule,
+    ProductPageModule,
     AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
