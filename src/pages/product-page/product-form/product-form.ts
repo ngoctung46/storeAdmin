@@ -26,10 +26,11 @@ export class ProductForm {
         this.isEdit = this.navParams.data.isEdit;
         this.products = this.af.database.list('/products');
         this.productForm = formBuilder.group({
-            name: [this.product.name, Validators.compose([Validators.maxLength(100), Validators.pattern('[a-zA-Z_]*'), Validators.required])],
+            name: [this.product.name, Validators.compose([Validators.maxLength(100), Validators.required])],
             description: [this.product.description],
             price: [this.product.price, Validators.compose([Validators.required, PriceValidator.isValid])],
-            url: [this.product.url]
+            url: [this.product.url],
+            category: [this.product.category, Validators.compose([Validators.required,Validators.maxLength(100)])]
         });
 
     }
@@ -40,7 +41,8 @@ export class ProductForm {
             name: this.productForm.value.name,
             description: this.productForm.value.description,
             price: this.productForm.value.price,
-            url: this.productForm.value.url
+            url: this.productForm.value.url,
+            category: this.productForm.value.category
         };
 
         if (!this.productForm.valid) {
@@ -60,7 +62,8 @@ export class ProductForm {
             name: this.productForm.value.name,
             description: this.productForm.value.description,
             price: this.productForm.value.price,
-            url: this.productForm.value.url
+            url: this.productForm.value.url,
+            category: this.productForm.value.category
         };
         if (!this.productForm.valid) {
             return;

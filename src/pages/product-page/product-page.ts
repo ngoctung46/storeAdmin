@@ -25,21 +25,21 @@ export class ProductPage {
 
   showOptions(product) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'What do you want to do?',
+      title: 'Bạn muốn làm gì?',
       buttons: [
         {
-          text: 'Delete',
+          text: 'Xóa',
           role: 'destructive',
           handler: () => {
             this.removeProduct(product.$key);
           }
         }, {
-          text: 'Update',
+          text: 'Sửa',
           handler: () => {
             this.gotoProductForm(product);
           }
         }, {
-          text: 'Cancel',
+          text: 'Hủy',
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');

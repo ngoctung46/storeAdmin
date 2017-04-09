@@ -34,10 +34,10 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Modifier', component: ModifierPage },
-      { title: 'Orders', component: OrdersPage },
-      { title: 'Product', component: ProductPage }
+      { title: 'Trang Chủ', component: HomePage },
+      { title: 'Quản Lý Cách Chế Biến', component: ModifierPage },
+      { title: 'Quản Lý Đơn Hàng', component: OrdersPage },
+      { title: 'Quản Lý Sản Phẩm', component: ProductPage }
     ];
   }
 
@@ -51,12 +51,11 @@ export class MyApp {
       this.backgroundMode.on('activate').subscribe(() => {
         this.orders.subscribe(() => {
           this.notifications.schedule({
-            title: 'New Order',
-            text: 'New order has been placed, please check the order list',
+            title: 'Đơn Hàng Mới',
+            text: 'Bạn có đơn hàng mới, làm ơn kiểm tra danh sách đơn hàng',
             at: new Date(new Date().getTime() + 5 * 1000),
 
-          });
-          console.log('new order placed');
+          });        
         });
       });
       this.statusBar.styleDefault();

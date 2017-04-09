@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ActionSheetController, AlertController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { OrderDetailPage } from './order-detail/order-detail';
 
 /**
  * Generated class for the Orders page.
@@ -28,32 +29,12 @@ export class OrdersPage {
     console.log('ionViewDidLoad Orders');
   }
 
-  addOrder() {
-    let prompt = this.alertCtrl.create({
-      title: 'Order Name',
-      message: 'Please enter new order name',
-      inputs: [
-        {
-          name: 'name',
-          placeholder: 'name'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => { console.log('Canceld clicked') }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            this.orders.push({
-              name: data.name
-            });
-          }
-        }
-      ]
-    });
-    prompt.present();
+  gotoOrderDetail(order){
+    this.navCtrl.push(OrderDetailPage, {order: order})
+  }
+
+  removeOrder(order){
+    this.orders.remove(order.$key);
   }
 
 }

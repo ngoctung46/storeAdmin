@@ -15,16 +15,28 @@
       <ion-icon name="add"></ion-icon>
     </button>
      </ion-buttons>
-    <ion-title>orders</ion-title>
+    <ion-title>Tổng Hợp Đơn Hàng</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list inset>
-      <button ion-item *ngFor="let order of orders|async">
-        <h2>{{ order.name }}</h2>
-      </button>  
+  <ion-list *ngFor="let order of orders | async">
+    <ion-item-sliding>
+    <ion-item (click)="gotoOrderDetail(order)">
+      <ion-avatar item-left>
+        <ion-icon name='man'></ion-icon>
+      </ion-avatar>
+      <h2>{{ order.name }}</h2>
+      <p><ion-icon name='call' item-left></ion-icon>{{ order.phone }}</p>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="danger" (click)="removeOrder(order)">
+        Xóa
+      </button>
+    </ion-item-options>
+      
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

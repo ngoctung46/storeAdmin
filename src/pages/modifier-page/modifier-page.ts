@@ -37,8 +37,8 @@ export class ModifierPage {
 
   addModifier() {
     let prompt = this.alertCtrl.create({
-      title: 'Modifier Name',
-      message: 'Please enter new modifier name',
+      title: 'Tên Cách Chế Biến',
+      message: 'Làm ơn điền vào cách chế biến mới',
       inputs: [
         {
           name: 'name',
@@ -47,11 +47,11 @@ export class ModifierPage {
       ],
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Hủy',
           handler: data => { console.log('Canceld clicked') }
         },
         {
-          text: 'Save',
+          text: 'Lưu',
           handler: data => {
             this.modifiers.push({
               name: data.name
@@ -64,21 +64,21 @@ export class ModifierPage {
   }
   showOptions(modifier) {
     let actionSheet = this.actionSheetCtrl.create({
-      title: 'What do you want to do?',
+      title: 'Bạn muốn làm gì?',
       buttons: [
         {
-          text: 'Delete Song',
+          text: 'Xóa',
           role: 'destructive',
           handler: () => {
             this.removeModifier(modifier.$key);
           }
         }, {
-          text: 'Update title',
+          text: 'Sửa',
           handler: () => {
             this.updateModifier(modifier);
           }
         }, {
-          text: 'Cancel',
+          text: 'Hủy',
           role: 'cancel',
           handler: () => {
             console.log('Cancel clicked');
@@ -96,24 +96,24 @@ export class ModifierPage {
 
   updateModifier(modifier) {
      let prompt = this.alertCtrl.create({
-    title: 'Modifier Name',
-    message: "Update the modifier name",
+    title: 'Sửa Cách chế biến',
+    message: "Sửa tên cách chế biến",
     inputs: [
       {
         name: 'name',
-        placeholder: 'Modifier Name',
+        placeholder: 'Tên cách chế biến',
         value: modifier.name
       },
     ],
     buttons: [
       {
-        text: 'Cancel',
+        text: 'Hủy',
         handler: data => {
           console.log('Cancel clicked');
         }
       },
       {
-        text: 'Save',
+        text: 'Lưu',
         handler: data => {
           this.modifiers.update(modifier.$key, {
             name: data.name
